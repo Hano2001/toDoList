@@ -1,64 +1,46 @@
 document.addEventListener("DOMContentLoaded", function(event) {
+    //Variabler vi använder oss av nedan
+    let lista2 = document.getElementById("lista2");
     let btn = document.getElementById("btn");
     let nummer = 0;
     let syssla = document.getElementById("syssla");
-    let syssla_nummer = 0;
+    //Koden nedan triggas när man trycker Enter när något
+    //tecken finns i textrutan.
     document.addEventListener("keypress", function(e) {
         if ((e.key === "Enter") && (syssla.value.trim() != "")) {
-            syssla_nummer++;
-            
+            //Skapar nya nummer för att ha unika id
+            //till våra list items.
+            nummer++;
+            //Skapar list item.
             let grej = document.createElement("li");
             grej.innerHTML = syssla.value;
-            
+            //Lägger till vårt nya li till listan m. unikt id
             let lista = document.getElementById("lista");
             lista.appendChild(grej);
-            nummer++;
-            grej.setAttribute("id", "grej_" + nummer);
-            syssla.value = "";
-
+            grej.setAttribute("id", "grej_" + nummer);            
+            //Skapar en ta bort knapp & lägger till i li
             let delete_button = document.createElement("span");
             delete_button.innerHTML = "Ta bort";
-            delete_button.setAttribute("id", syssla_nummer);
-            
+            delete_button.setAttribute("id", "del_" +nummer);
             grej.appendChild(delete_button);
-            let delete_span = document.getElementById(syssla_nummer);
+            //Lägger på en lyssnare på ta bort knappen
+            let delete_span = document.getElementById("del_" +nummer);
             delete_span.addEventListener("click", function() {
+                //Kopierar li till borttagna
+                let borttagen1 = this.parentNode;
+                let borttagen2 = borttagen1.cloneNode(true);
+                console.log(this.parentNode);
+                lista2.appendChild(borttagen2);
+                //Tar bort li från första listan
                 this.parentNode.remove();
-                let bortagen = document.createElement("li");
-                bortagen.innerHTML = this.parentNode.innerHTML;
-                
-            let lista2 = document.getElementById("lista2");
-            lista2.appendChild(bortagen);
-            bortagen.setAttribute("id", "grej_" + nummer);
-
-        let delete_button = document.createElement("span");
-        delete_button.innerHTML = "Ta bort";
-        delete_button.setAttribute("id", syssla_nummer);
-
-        /*grej.appendChild(delete_button);
-            let delete_span = document.getElementById(syssla_nummer);
-            delete_span.addEventListener("click", function() {
-                this.parentNode.remove();
-                let bortagen = document.createElement("li");
-                bortagen.innerHTML = this.parentNode.innerHTML;*/
-
-                
+                //Skapar lyssnare för permanent borttagning
+                let pdelete_span = document.getElementById("del_" +nummer);
+                pdelete_span.addEventListener("click", function() {
+                    this.parentNode.remove();
+                })                
             })
-        }
-        
-        
-        /*let lista2 = document.getElementById("lista2");
-        lista2.appendChild(bortagen);
-
-        let delete_button = document.createElement("span");
-        delete_button.innerHTML = "Ta bort";
-        delete_button.setAttribute("id", syssla_nummer);
-        
-        grej.appendChild(delete_button);
-        let delete_span = document.getElementById(syssla_nummer);
-        delete_span.addEventListener("click", function() {
-            this.parentNode.remove();*/
-
-
+            //Nollställer textfältet
+            syssla.value = "";
+        }        
     })
 })
