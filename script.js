@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event) {
     //Variabler vi använder oss av nedan
     let lista2 = document.getElementById("lista2");
-    let btn = document.getElementById("btn");
     let nummer = 0;
     let syssla = document.getElementById("syssla");
     //Koden nedan triggas när man trycker Enter när något
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 //Kopierar li till borttagna
                 let borttagen1 = this.parentNode;
                 let borttagen2 = borttagen1.cloneNode(true);
-                console.log(this.parentNode);
                 lista2.appendChild(borttagen2);
                 //Tar bort li från första listan
                 this.parentNode.remove();
