@@ -49,6 +49,12 @@ span {
     text-align: left;
 }
 
+.pdelete {
+    float: right;
+    background-color: rgb(170, 47, 112);
+    text-align: right;    
+}
+
 li:hover span {
     display: block;
 }
