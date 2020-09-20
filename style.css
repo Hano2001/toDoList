@@ -2,9 +2,6 @@ body {
     background-image: linear-gradient(to right, lightblue, rgb(230, 136, 233));
     font-size: 1.5em;
     font-family: 'Architects Daughter', cursive;
-}
-
-h1, h2, h4, h5, div {
     text-align: center;
 }
 
@@ -13,14 +10,12 @@ h1 {
 }
 
 div {
+    margin-left: auto;
+    margin-right: auto;
     border: 3px solid black;
     border-radius: 8px;
     min-height: 500px;
-}
-
-#syssla {
-    min-width: 100px;
-    margin: auto;
+    max-width: 550px;
 }
 
 ul {
@@ -28,12 +23,14 @@ ul {
 }
 
 li {
-    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
     border: 3px solid darkblue;
     color: darkblue;
     background-color: violet;
     text-align: center;
     opacity: 0.9;
+    max-width: 500px;
 }
 
 span {

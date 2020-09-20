@@ -34,7 +34,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 lista2.appendChild(done2);
                 //Tar bort li från första listan
                 this.parentNode.remove();  
-                              
+                //Skapar lyssnare för permanent borttagning
+                let pdelete_span = document.getElementById("del_" +nummer);
+                pdelete_span.addEventListener("click", function() {
+                    this.parentNode.remove();
+                })
             })
 
             //Skapar en ta bort knapp & lägger till i li
@@ -45,8 +49,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
             grej.appendChild(delete_button);
             //Lägger på en lyssnare på ta bort knappen
             let delete_span = document.getElementById("del_" +nummer);
-            delete_span.classList.add("delete");
-            console.log(delete_span.className);
             delete_span.addEventListener("click", function() {
                 //Kopierar li till borttagna
                 let borttagen1 = this.parentNode;
@@ -55,10 +57,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 //Tar bort li från första listan
                 this.parentNode.remove();
                 //Skapar lyssnare för permanent borttagning
-                let pdelete_span = document.getElementById("del_" +nummer);
-                pdelete_span.addEventListener("click", function() {
+                let pdelete_span2 = document.getElementById("del_" +nummer);
+                pdelete_span2.addEventListener("click", function() {
                     this.parentNode.remove();
-                })                
+                })
             })
             //Nollställer textfältet
             syssla.value = "";
