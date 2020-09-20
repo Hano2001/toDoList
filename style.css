@@ -1,8 +1,11 @@
 body {
     background-image: linear-gradient(to right, lightblue, rgb(230, 136, 233));
-    text-align: center;
     font-size: 1.5em;
     font-family: 'Architects Daughter', cursive;
+}
+
+h1, h2, h4, h5, div {
+    text-align: center;
 }
 
 h1 {
@@ -26,17 +29,27 @@ ul {
 
 li {
     margin: 15px;
-    border: 5px solid darkblue;
+    border: 3px solid darkblue;
     color: darkblue;
     background-color: violet;
-    text-align: left;
+    text-align: center;
+    opacity: 0.9;
 }
 
 span {
+    display: none;
+}
+
+.delete {
     float: right;
     background-color: purple;
-    text-align: right;
-    display: none;
+    text-align: right;    
+}
+
+.done {
+    float: left;
+    background-color: lightgreen;
+    text-align: left;
 }
 
 li:hover span {
